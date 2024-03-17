@@ -7,7 +7,8 @@ const app = express();
 
 app.use(express.static("public"));
 
-const { v4: uuidv4 } =require("uuid")
+const { v4: uuidv4 } =require("uuid");
+const e = require("express");
 // used for incoming requests
 app.use(express.json());
 
@@ -44,4 +45,24 @@ app.post("/api/notes",(req, res) =>{
 // adding ability to start server on port 3001
 app.listen(PORT, () => {
     console.log("Sever is now Active on Port 3001")
+})
+
+// bonus deleting functionaity 
+app.delete("/api/notes/:id", (req, res) => {
+    const noteId = req.params.id;
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ error: "Cant find file."});
+        } else{
+            const parsedData = JSON.parse(data);
+            const result = parsedData.filter((note) => note.id !== noteId);
+            fs.writeFile("./db/db.json", JSON.stringify(result), (err) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).json({ error:"Cant find file"})
+                }
+            })
+        }
+    })
 })
