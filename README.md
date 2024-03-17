@@ -6,3 +6,6 @@ This note taker is appication can that allows all users to save and delete notes
 
 ## Starter Code From UofT
  - [GitHub Repo Link](https://github.com/coding-boot-camp/miniature-eureka)
+
+ ## Current Issues With Heroku 
+ ![Error Message](C:\Users\james\bootcamp\note-taker\Images\Screenshot 2024-03-17 134727.png)
