@@ -60,9 +60,11 @@ app.delete("/api/notes/:id", (req, res) => {
             fs.writeFile("./db/db.json", JSON.stringify(result), (err) => {
                 if (err) {
                     console.error(err);
-                    res.status(500).json({ error:"Cant find file"})
+                    res.status(500).json({ error:"Cant find file"});
+                } else {
+                    res.json(result);
                 }
-            })
+            });
         }
-    })
-})
+    });
+});
