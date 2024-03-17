@@ -16,8 +16,8 @@ app.use(express.urlencoded({ extended: true}));
 // Now Setting The Server port 
 const PORT = process.env.PORT || 3001;
 // json route
-app.get("/notes", (req, res) => 
-    res.sendFile("/notes", { root: __dirname})
+app.get("/api/notes", (req, res) => 
+    res.sendFile("./db/db.json", { root: __dirname})
 );
 
 // anding the route for the notes.hmtl file
@@ -25,5 +25,6 @@ app.get("/notes", (req, res) =>
     res.sendFile("./public/notes.html", { root: __dirname})
 );
 // adding delete functionilty - Bonus
+
 
 
