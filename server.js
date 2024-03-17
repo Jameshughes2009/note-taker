@@ -24,7 +24,21 @@ app.get("/api/notes", (req, res) =>
 app.get("/notes", (req, res) => 
     res.sendFile("./public/notes.html", { root: __dirname})
 );
-// adding delete functionilty - Bonus
-
+// ability to add a new note
+app.post("/api/notes",(req, res) =>{
+    fs.readFile("./db/db.json", "utf8", (err, data) =>{
+        if(err) {
+            console.error(err);
+        } else {
+            req.body.id = uuidv4();
+            const parsedData = JSON.parse(data);
+            parsedData.push(req.body);
+            console.log(parsedData);
+            fs.writeFile("./db/db.json", JSON.stringify(parsedData), (err) =>
+                err ? console.error(err) : res.json(parsedData)
+            );
+        }
+    });
+});
 
 
