@@ -41,3 +41,7 @@ app.post("/api/notes",(req, res) =>{
     });
 });
 
+// adding ability to start server on port 3001
+app.listen(PORT, () => {
+    console.log("Sever is now Active on Port 3001")
+})
