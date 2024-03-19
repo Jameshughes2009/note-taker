@@ -9,3 +9,5 @@ This note taker is appication can that allows all users to save and delete notes
 
  ## Current Issues With Heroku 
  ![Error](https://github.com/Jameshughes2009/note-taker/blob/main/Images/Screenshot%202024-03-17%20134727.png?raw=true)
+
+ ![Error2](https://github.com/Jameshughes2009/note-taker/blob/main/Images/Screenshot%202024-03-18%20195506.png?raw=true)
